@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div>
+        <a class="btn btn-success" asp-controller="PostItem" asp-action="Index">Get</a>
+    </div>
+
+    <div>
+        <a class="btn btn-success" asp-controller="PostItem" asp-action="Create">Give</a>
+    </div>
+
+<div>
+    <a onclick="location.href='@Url.Action("Learn", "Home")'">Learn</a>
+</div>
+
+<div>
+    <a onclick="location.href='@Url.Action("Reward", "Home")'">Reward</a>
+</div>
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

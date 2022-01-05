@@ -1,0 +1,57 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<h2>Login</h2>
+@*<form method="post" asp-controller="Account" asp-action="Login"
+          asp-route-returnurl="@Model.ReturnUrl">
+        <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
+        <span class="btn-danger">@ViewBag.MessageError</span>
+        <div>
+            <label asp-for="Username"></label>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+        </div>
+
+        <div>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div>
+            <label asp-for="RememberMe"></label>
+            <input asp-for="RememberMe" />
+            <span asp-validation-for="RememberMe"></span>
+        </div>
+        <input type="submit" value="Login" />
+    </form>*@
+
+<form asp-controller="Account" asp-action="Login" method="post" class="col-12 form-horizontal" role="form" asp-route-returnurl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.EmailAddress" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.EmailAddress" class="form-control" />
+            <span asp-validation-for="@Model.EmailAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Password" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.Password" class="form-control" />
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Login" />
+            <input type="button" class="btn btn-info" value="Register" onclick="location.href='@Url.Action("Create", "User")'" />
+        </div>
+    </div>
+</form>
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
